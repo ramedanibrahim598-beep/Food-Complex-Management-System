@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
-const backendApiUrl = (process.env.BACKEND_API_URL || 'http://127.0.0.1:8001').replace(/\/+$/, '')
+const backendApiUrl = (process.env.BACKEND_API_URL || 'http://127.0.0.1:8001')
+  .replace(/\/+$/, '')
+  .replace(/\/api$/, '')
 
 const nextConfig = {
   async rewrites() {
