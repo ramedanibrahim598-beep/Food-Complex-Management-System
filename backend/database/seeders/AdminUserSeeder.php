@@ -13,31 +13,35 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create system admin user
-        User::create([
-            'name' => 'System Admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password123'),
-            'role' => 'system_admin',
-            'is_active' => true,
-        ]);
+        // Make seeding idempotent so db:seed can be run safely multiple times.
+        User::updateOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'System Admin',
+                'password' => Hash::make('password123'),
+                'role' => 'system_admin',
+                'is_active' => true,
+            ]
+        );
 
-        // Create regular admin user
-        User::create([
-            'name' => 'Admin User',
-            'email' => 'admin2@example.com',
-            'password' => Hash::make('password123'),
-            'role' => 'admin',
-            'is_active' => true,
-        ]);
+        User::updateOrCreate(
+            ['email' => 'admin2@example.com'],
+            [
+                'name' => 'Admin User',
+                'password' => Hash::make('password123'),
+                'role' => 'admin',
+                'is_active' => true,
+            ]
+        );
 
-        // Create regular user
-        User::create([
-            'name' => 'Regular User',
-            'email' => 'user@example.com',
-            'password' => Hash::make('password123'),
-            'role' => 'user',
-            'is_active' => true,
-        ]);
+        User::updateOrCreate(
+            ['email' => 'user@example.com'],
+            [
+                'name' => 'Regular User',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'is_active' => true,
+            ]
+        );
     }
 }
