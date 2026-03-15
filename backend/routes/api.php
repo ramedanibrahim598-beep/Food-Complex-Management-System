@@ -1004,3 +1004,8 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::prefix('v1')->group(function () {
     // Add your API routes here
 });
+Route::get('/test', function () {
+    return response()->json([
+        'message' => 'Backend working'
+    ]);
+});

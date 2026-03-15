@@ -100,21 +100,18 @@ export default function AdminDashboard() {
 
   return (
     <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-        <h1>System Admin Dashboard</h1>
-        <div>
-          <button 
-            onClick={() => router.push('/admin/users')}
-            style={{ marginRight: '1rem', padding: '0.5rem 1rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            Manage Users
-          </button>
-          <button 
-            onClick={() => router.push('/admin/backup')}
-            style={{ padding: '0.5rem 1rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            Backup System
-          </button>
+      <div style={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '12px', padding: '1rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <button 
+              onClick={() =>router.push('/admin/users')} style={{ padding: '0.55rem 1rem', backgroundColor: '#2563eb', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }} > Manage Users</button>
+            <button 
+              onClick={() =>router.push('/admin/backup')} style={{ padding: '0.55rem 1rem', backgroundColor: '#16a34a', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }} > Backup System</button>
+          </div>
+          <div style={{ marginLeft: 'auto', textAlign: 'right' }}>
+            <h1 style={{ margin: 0, fontSize: '1.6rem', fontWeight: 700, color: '#111827' }}>System Admin Dashboard</h1>
+            <div style={{ marginTop: '0.25rem', fontSize: '0.9rem', color: '#6b7280' }}>Overview</div>
+          </div>
         </div>
       </div>
 
@@ -212,23 +209,11 @@ export default function AdminDashboard() {
         <h3 style={{ marginTop: 0, color: '#333' }}>Quick Actions</h3>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           <button 
-            onClick={() => router.push('/admin/users')}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            👥 Manage Users
-          </button>
+            onClick={() =>router.push('/admin/users')} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 👥 Manage Users</button>
           <button 
-            onClick={() => router.push('/admin/backup')}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            💾 Create Backup
-          </button>
+            onClick={() =>router.push('/admin/backup')} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 💾 Create Backup</button>
           <button
-            onClick={() => logoutUser(router)}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🚪 Logout
-          </button>
+            onClick={() =>logoutUser(router)} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 🚪 Logout</button>
         </div>
       </div>
     </div>

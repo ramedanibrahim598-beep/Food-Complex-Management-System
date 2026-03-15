@@ -1,4 +1,6 @@
-﻿'use client'
+'use client'
+
+'use client'
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
@@ -173,48 +175,50 @@ export default function QualityDashboard() {
           padding: '2rem'
         }}>
           <div>
-            <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'white', margin: 0, marginBottom: '0.5rem' }}>
-              ✅ Quality Control Dashboard
-            </h1>
+            <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'white', margin: 0, marginBottom: '0.5rem' }}>Quality Control Dashboard</h1>
             <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.9)', margin: 0 }}>
               Monitor and ensure product quality standards
             </p>
           </div>
         </div>
       </div>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333', margin: 0 }}>Overview</h2>
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-          <button
-            onClick={() => router.push('/')}
-            style={{ padding: '0.5rem 1rem', backgroundColor: '#6c757d', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            ← Back
-          </button>
-          <button 
-            onClick={() => router.push('/quality/inspection?new=1')}
-            style={{ padding: '0.5rem 1rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🔍 New Inspection
-          </button>
-          <button
-            onClick={() => router.push('/quality/inspection')}
-            style={{ padding: '0.5rem 1rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            ✅ Quality Inspection
-          </button>
-          <button
-            onClick={() => {
-              localStorage.removeItem('token')
-              localStorage.removeItem('user')
-              router.push('/login')
-            }}
-            style={{ padding: '0.5rem 1rem', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🚪 Logout
-          </button>
-        </div>
+      <div style={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '12px', padding: '1rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <button
+              onClick={() => router.push('/')}
+              style={{ padding: '0.55rem 1rem', backgroundColor: '#6b7280', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }}
+            >
+              Back
+            </button>
+            <button
+              onClick={() => router.push('/quality/inspection?new=1')}
+              style={{ padding: '0.55rem 1rem', backgroundColor: '#16a34a', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }}
+            >
+              New Inspection
+            </button>
+            <button
+              onClick={() => router.push('/quality/inspection')}
+              style={{ padding: '0.55rem 1rem', backgroundColor: '#2563eb', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }}
+            >
+              Quality Inspection
+            </button>
+            <button
+              onClick={() => {
+                localStorage.removeItem('token')
+                localStorage.removeItem('user')
+                router.push('/login')
+              }}
+              style={{ padding: '0.55rem 1rem', backgroundColor: '#dc2626', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }}
+            >
+              Logout
+            </button>
+          </div>
+          <div style={{ marginLeft: 'auto', textAlign: 'right' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', margin: 0 }}>Overview</h2>
+            <div style={{ marginTop: '0.25rem', fontSize: '0.9rem', color: '#6b7280' }}>Quality Summary</div>
+          </div>
+      </div>
       </div>
 
       {error && (
@@ -225,19 +229,7 @@ export default function QualityDashboard() {
               setError('')
               setLoading(true)
               fetchDashboardData()
-            }}
-            style={{ 
-              marginLeft: '1rem', 
-              padding: '0.25rem 0.75rem', 
-              backgroundColor: '#dc3545', 
-              color: 'white', 
-              border: 'none', 
-              borderRadius: '4px', 
-              cursor: 'pointer' 
-            }}
-          >
-            Retry
-          </button>
+            }} style={{ marginLeft: '1rem', padding: '0.25rem 0.75rem', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > Retry</button>
         </div>
       )}
 
@@ -249,7 +241,7 @@ export default function QualityDashboard() {
 
       {/* Today's Quality Metrics */}
       <div style={{ marginBottom: '2rem' }}>
-        <h2 style={{ marginBottom: '1.5rem', color: '#333', fontSize: '1.8rem', fontWeight: '700' }}>🔍 Today's Quality Overview</h2>
+        <h2 style={{ marginBottom: '1.5rem', color: '#333', fontSize: '1.8rem', fontWeight: '700' }}>Today's Quality Overview</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
           <div style={{ 
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -397,7 +389,7 @@ export default function QualityDashboard() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
         {/* Quality Issues */}
         <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-          <h3 style={{ marginTop: 0, color: '#333' }}>⚠️ Top Quality Issues</h3>
+          <h3 style={{ marginTop: 0, color: '#333' }}>Top Quality Issues</h3>
           {qualityIssues.length === 0 ? (
             <p style={{ color: '#666', fontStyle: 'italic' }}>No quality issues this month</p>
           ) : (
@@ -429,7 +421,7 @@ export default function QualityDashboard() {
 
         {/* Pending Inspections */}
         <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-          <h3 style={{ marginTop: 0, color: '#333' }}>⏳ Pending Inspections</h3>
+          <h3 style={{ marginTop: 0, color: '#333' }}>Pending Inspections</h3>
           {pendingInspections.length === 0 ? (
             <p style={{ color: '#666', fontStyle: 'italic' }}>No pending inspections</p>
           ) : (
@@ -468,17 +460,13 @@ export default function QualityDashboard() {
             </div>
           )}
           <button 
-            onClick={() => router.push('/quality/inspection')}
-            style={{ width: '100%', padding: '0.75rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '1rem' }}
-          >
-            🔍 Start New Inspection
-          </button>
+            onClick={() =>router.push('/quality/inspection')} style={{ width: '100%', padding: '0.75rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '1rem' }} > 🔍 Start New Inspection</button>
         </div>
       </div>
 
       {/* Recent Quality Checks */}
       <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', marginBottom: '2rem' }}>
-        <h3 style={{ marginTop: 0, color: '#333' }}>🕒 Recent Quality Checks</h3>
+        <h3 style={{ marginTop: 0, color: '#333' }}>Recent Quality Checks</h3>
         {recentChecks.length === 0 ? (
           <p style={{ color: '#666', fontStyle: 'italic' }}>No recent quality checks found</p>
         ) : (
@@ -534,26 +522,14 @@ export default function QualityDashboard() {
 
       {/* Quick Actions */}
       <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-        <h3 style={{ marginTop: 0, color: '#333' }}>⚡ Quick Actions</h3>
+        <h3 style={{ marginTop: 0, color: '#333' }}>Quick Actions</h3>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           <button 
-            onClick={() => router.push('/quality/inspection')}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🔍 New Quality Check
-          </button>
+            onClick={() =>router.push('/quality/inspection')} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 🔍 New Quality Check</button>
           <button 
-            onClick={() => window.location.reload()}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🔄 Refresh Dashboard
-          </button>
+            onClick={() =>window.location.reload()} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 🔄 Refresh Dashboard</button>
           <button 
-            onClick={() => router.push('/quality/reports')}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#17a2b8', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            📊 View Reports
-          </button>
+            onClick={() =>router.push('/quality/reports')} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#17a2b8', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 📊 View Reports</button>
         </div>
       </div>
     </div>

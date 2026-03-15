@@ -227,43 +227,29 @@ export default function CashierDashboard() {
           padding: '2rem'
         }}>
           <div>
-            <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'white', margin: 0, marginBottom: '0.5rem' }}>
-              💰 Cashier Dashboard
-            </h1>
+            <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'white', margin: 0, marginBottom: '0.5rem' }}>Cashier Dashboard</h1>
             <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.9)', margin: 0 }}>
               Manage orders and process payments
             </p>
           </div>
         </div>
       </div>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333', margin: 0 }}>Overview</h2>
-        <div>
-          <button 
-            onClick={() => router.push('/cashier/pos')}
-            style={{ marginRight: '1rem', padding: '0.5rem 1rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🛒 New Order
-          </button>
-          <button 
-            onClick={() => router.push('/cashier/orders')}
-            style={{ marginRight: '1rem', padding: '0.5rem 1rem', backgroundColor: '#17a2b8', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            📋 All Orders
-          </button>
-          <button 
-            onClick={() => router.push('/')}
-            style={{ marginRight: '1rem', padding: '0.5rem 1rem', backgroundColor: '#6c757d', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            ← Back to Home
-          </button>
-          <button 
-            onClick={() => logoutUser(router)}
-            style={{ padding: '0.5rem 1rem', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🚪 Logout
-          </button>
+      <div style={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '12px', padding: '1rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <button 
+              onClick={() =>router.push('/cashier/pos')} style={{ padding: '0.55rem 1rem', backgroundColor: '#16a34a', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }} > New Order</button>
+            <button 
+              onClick={() =>router.push('/cashier/orders')} style={{ padding: '0.55rem 1rem', backgroundColor: '#0ea5e9', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }} > All Orders</button>
+            <button 
+              onClick={() =>router.push('/')} style={{ padding: '0.55rem 1rem', backgroundColor: '#6b7280', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }} > Back to Home</button>
+            <button 
+              onClick={() =>logoutUser(router)} style={{ padding: '0.55rem 1rem', backgroundColor: '#dc2626', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }} > Logout</button>
+          </div>
+          <div style={{ marginLeft: 'auto', textAlign: 'right' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', margin: 0 }}>Overview</h2>
+            <div style={{ marginTop: '0.25rem', fontSize: '0.9rem', color: '#6b7280' }}>Sales Summary</div>
+          </div>
         </div>
       </div>
 
@@ -275,7 +261,7 @@ export default function CashierDashboard() {
 
       {/* Today's Sales Metrics */}
       <div style={{ marginBottom: '2rem' }}>
-        <h2 style={{ marginBottom: '1.5rem', color: '#333', fontSize: '1.8rem', fontWeight: '700' }}>💰 Today's Sales Overview</h2>
+        <h2 style={{ marginBottom: '1.5rem', color: '#333', fontSize: '1.8rem', fontWeight: '700' }}>Today's Sales Overview</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
           <div style={{ 
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -423,7 +409,7 @@ export default function CashierDashboard() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
         {/* Payment Methods */}
         <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-          <h3 style={{ marginTop: 0, color: '#333' }}>💳 Payment Methods Today</h3>
+          <h3 style={{ marginTop: 0, color: '#333' }}>Payment Methods Today</h3>
           {paymentMethods.length === 0 ? (
             <p style={{ color: '#666', fontStyle: 'italic' }}>No payments processed today</p>
           ) : (
@@ -465,7 +451,7 @@ export default function CashierDashboard() {
 
         {/* Pending Orders */}
         <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-          <h3 style={{ marginTop: 0, color: '#333' }}>⏳ Pending Orders</h3>
+          <h3 style={{ marginTop: 0, color: '#333' }}>Pending Orders</h3>
           {pendingOrders.length === 0 ? (
             <p style={{ color: '#666', fontStyle: 'italic' }}>No pending orders</p>
           ) : (
@@ -521,17 +507,13 @@ export default function CashierDashboard() {
             </div>
           )}
           <button 
-            onClick={() => router.push('/cashier/orders')}
-            style={{ width: '100%', padding: '0.75rem', backgroundColor: '#17a2b8', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '1rem' }}
-          >
-            📋 View All Orders
-          </button>
+            onClick={() =>router.push('/cashier/orders')} style={{ width: '100%', padding: '0.75rem', backgroundColor: '#17a2b8', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', marginTop: '1rem' }} > 📋 View All Orders</button>
         </div>
       </div>
 
       {/* Recent Orders */}
       <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', marginBottom: '2rem' }}>
-        <h3 style={{ marginTop: 0, color: '#333' }}>🕒 Recent Orders</h3>
+        <h3 style={{ marginTop: 0, color: '#333' }}>Recent Orders</h3>
         {recentOrders.length === 0 ? (
           <p style={{ color: '#666', fontStyle: 'italic' }}>No recent orders found</p>
         ) : (
@@ -591,26 +573,14 @@ export default function CashierDashboard() {
 
       {/* Quick Actions */}
       <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-        <h3 style={{ marginTop: 0, color: '#333' }}>⚡ Quick Actions</h3>
+        <h3 style={{ marginTop: 0, color: '#333' }}>Quick Actions</h3>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           <button 
-            onClick={() => router.push('/cashier/pos')}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🛒 New Order
-          </button>
+            onClick={() =>router.push('/cashier/pos')} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 🛒 New Order</button>
           <button 
-            onClick={() => window.location.reload()}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🔄 Refresh Dashboard
-          </button>
+            onClick={() =>window.location.reload()} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 🔄 Refresh Dashboard</button>
           <button 
-            onClick={() => router.push('/cashier/reports')}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#17a2b8', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            📊 Payment Reports
-          </button>
+            onClick={() =>router.push('/cashier/reports')} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#17a2b8', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 📊 Payment Reports</button>
         </div>
       </div>
     </div>

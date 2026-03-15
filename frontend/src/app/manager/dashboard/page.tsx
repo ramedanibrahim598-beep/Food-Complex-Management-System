@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
@@ -117,31 +117,36 @@ export default function ManagerDashboard() {
 
   return (
     <div style={{ padding: '2rem', maxWidth: '1400px', margin: '0 auto' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-        <h1>General Manager Dashboard</h1>
-        <div>
-          <button 
-            onClick={() => router.push('/manager/reports')}
-            style={{ marginRight: '1rem', padding: '0.5rem 1rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            📊 View Reports
-          </button>
-          <button
-            onClick={() => router.push('/manager/approvals')}
-            style={{ marginRight: '1rem', padding: '0.5rem 1rem', backgroundColor: '#059669', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            📝 Approvals
-          </button>
-          <button 
-            onClick={() => {
-              localStorage.removeItem('token')
-              localStorage.removeItem('user')
-              router.push('/login')
-            }}
-            style={{ padding: '0.5rem 1rem', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🚪 Logout
-          </button>
+      <div style={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '12px', padding: '1rem', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
+            <button 
+              onClick={() => router.push('/manager/reports')}
+              style={{ padding: '0.55rem 1rem', backgroundColor: '#2563eb', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }}
+            >
+              View Reports
+            </button>
+            <button
+              onClick={() => router.push('/manager/approvals')}
+              style={{ padding: '0.55rem 1rem', backgroundColor: '#059669', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }}
+            >
+              Approvals
+            </button>
+            <button 
+              onClick={() => {
+                localStorage.removeItem('token')
+                localStorage.removeItem('user')
+                router.push('/login')
+              }}
+              style={{ padding: '0.55rem 1rem', backgroundColor: '#dc2626', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', minHeight: '36px' }}
+            >
+              Logout
+            </button>
+          </div>
+          <div style={{ marginLeft: 'auto', textAlign: 'right' }}>
+            <h1 style={{ margin: 0, fontSize: '1.6rem', fontWeight: 700, color: '#111827' }}>General Manager Dashboard</h1>
+            <div style={{ marginTop: '0.25rem', fontSize: '0.9rem', color: '#6b7280' }}>Overview</div>
+          </div>
         </div>
       </div>
 
@@ -153,7 +158,7 @@ export default function ManagerDashboard() {
 
       {/* Today's Key Metrics */}
       <div style={{ marginBottom: '2rem' }}>
-        <h2 style={{ marginBottom: '1.5rem', color: '#333', fontSize: '1.8rem', fontWeight: '700' }}>📊 Today's Performance</h2>
+        <h2 style={{ marginBottom: '1.5rem', color: '#333', fontSize: '1.8rem', fontWeight: '700' }}>Today's Performance</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
           {/* Production Metrics */}
           <div style={{ 
@@ -172,9 +177,7 @@ export default function ManagerDashboard() {
             e.currentTarget.style.transform = 'translateY(0)'
             e.currentTarget.style.boxShadow = '0 8px 16px rgba(17, 153, 142, 0.3)'
           }}>
-            <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.3rem', display: 'flex', alignItems: 'center', opacity: 0.95 }}>
-              <span style={{ fontSize: '2rem', marginRight: '0.5rem' }}>🏭</span> Production
-            </h3>
+            <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.3rem', display: 'flex', alignItems: 'center', opacity: 0.95 }}><span style={{ fontSize: '2rem', marginRight: '0.5rem' }}>🏭</span> Production</h3>
             {todayMetrics && (
               <div style={{ fontSize: '0.95rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
@@ -212,9 +215,7 @@ export default function ManagerDashboard() {
             e.currentTarget.style.transform = 'translateY(0)'
             e.currentTarget.style.boxShadow = '0 8px 16px rgba(102, 126, 234, 0.3)'
           }}>
-            <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.3rem', display: 'flex', alignItems: 'center', opacity: 0.95 }}>
-              <span style={{ fontSize: '2rem', marginRight: '0.5rem' }}>💰</span> Sales
-            </h3>
+            <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.3rem', display: 'flex', alignItems: 'center', opacity: 0.95 }}><span style={{ fontSize: '2rem', marginRight: '0.5rem' }}>💰</span> Sales</h3>
             {todayMetrics && (
               <div style={{ fontSize: '0.95rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
@@ -250,9 +251,7 @@ export default function ManagerDashboard() {
             e.currentTarget.style.transform = 'translateY(0)'
             e.currentTarget.style.boxShadow = '0 8px 16px rgba(250, 112, 154, 0.3)'
           }}>
-            <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.3rem', display: 'flex', alignItems: 'center', opacity: 0.95 }}>
-              <span style={{ fontSize: '2rem', marginRight: '0.5rem' }}>✅</span> Quality
-            </h3>
+            <h3 style={{ margin: '0 0 1rem 0', fontSize: '1.3rem', display: 'flex', alignItems: 'center', opacity: 0.95 }}><span style={{ fontSize: '2rem', marginRight: '0.5rem' }}>✅</span> Quality</h3>
             {todayMetrics && (
               <div style={{ fontSize: '0.95rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem', paddingBottom: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.2)' }}>
@@ -281,7 +280,7 @@ export default function ManagerDashboard() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
         {/* Alerts */}
         <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-          <h3 style={{ marginTop: 0, color: '#333' }}>🚨 Recent Alerts</h3>
+          <h3 style={{ marginTop: 0, color: '#333' }}>Recent Alerts</h3>
           {alerts.length === 0 ? (
             <p style={{ color: '#666', fontStyle: 'italic' }}>No alerts at this time</p>
           ) : (
@@ -312,7 +311,7 @@ export default function ManagerDashboard() {
 
         {/* Top Products */}
         <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-          <h3 style={{ marginTop: 0, color: '#333' }}>🏆 Top Performing Products (30 days)</h3>
+          <h3 style={{ marginTop: 0, color: '#333' }}>Top Performing Products (30 days)</h3>
           {topProducts.length === 0 ? (
             <p style={{ color: '#666', fontStyle: 'italic' }}>No sales data available</p>
           ) : (
@@ -348,26 +347,14 @@ export default function ManagerDashboard() {
 
       {/* Quick Actions */}
       <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-        <h3 style={{ marginTop: 0, color: '#333' }}>⚡ Quick Actions</h3>
+        <h3 style={{ marginTop: 0, color: '#333' }}>Quick Actions</h3>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           <button 
-            onClick={() => router.push('/manager/reports')}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            📊 View Detailed Reports
-          </button>
+            onClick={() =>router.push('/manager/reports')} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 📊 View Detailed Reports</button>
           <button 
-            onClick={() => window.location.reload()}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            🔄 Refresh Data
-          </button>
+            onClick={() =>window.location.reload()} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > 🔄 Refresh Data</button>
           <button 
-            onClick={() => router.push('/admin/dashboard')}
-            style={{ padding: '0.75rem 1.5rem', backgroundColor: '#6c757d', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-          >
-            ⚙️ System Admin
-          </button>
+            onClick={() =>router.push('/admin/dashboard')} style={{ padding: '0.75rem 1.5rem', backgroundColor: '#6c757d', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }} > ⚙️ System Admin</button>
         </div>
       </div>
     </div>
